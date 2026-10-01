@@ -6,4 +6,4 @@ export const trainer: Trainer[] = [
   { slug: "trainer-2", nama: "TODO Nama Trainer", keahlian: "TODO Keahlian", foto: "/images/trainer/trainer-2.jpg" },
   { slug: "trainer-3", nama: "TODO Nama Trainer", keahlian: "TODO Keahlian", foto: "/images/trainer/trainer-3.jpg" },
   { slug: "trainer-4", nama: "TODO Nama Trainer", keahlian: "TODO Keahlian", foto: "/images/trainer/trainer-4.jpg" },
-];
+]; 

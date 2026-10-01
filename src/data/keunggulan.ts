@@ -1,8 +1,9 @@
+// src/data/keunggulan.ts
 export const keunggulan = [
-  { title: "Trainer berpengalaman", desc: "Dibawakan oleh praktisi yang menguasai bidangnya dan terbiasa mengajar di lingkungan sekolah." },
-  { title: "Hadir langsung ke sekolah", desc: "Trainer datang ke sekolah Anda, dengan jadwal yang menyesuaikan kalender akademik." },
-  { title: "Praktik lebih banyak dari teori", desc: "Guru dan siswa langsung mencoba, sehingga materi cepat dipahami dan bisa dipakai." },
-  { title: "Materi sesuai kebutuhan sekolah", desc: "Topik dan tingkat kesulitan disesuaikan dengan jenjang dan kompetensi peserta." },
-  { title: "Untuk guru dan siswa", desc: "Tersedia program untuk penguatan guru maupun pelatihan langsung bagi siswa." },
-  { title: "Ada evaluasi di akhir", desc: "Setiap kegiatan ditutup dengan evaluasi agar sekolah tahu hasil dan tindak lanjutnya." },
+  { title: "Satu mitra, banyak solusi", desc: "Layanan internet, solusi jaringan, dan pelatihan teknologi dari satu perusahaan, sehingga koordinasi lebih mudah." },
+  { title: "Internet untuk kebutuhan instansi", desc: "Layanan koneksi dirancang untuk mendukung operasional sekolah, kantor, dan instansi sehari-hari." },
+  { title: "Trainer berpengalaman", desc: "Dibawakan oleh praktisi yang menguasai bidangnya dan terbiasa mengajar di lingkungan sekolah maupun instansi." },
+  { title: "Hadir langsung di lokasi", desc: "Tim kami datang ke tempat Anda, dengan jadwal yang menyesuaikan kegiatan dan kalender akademik." },
+  { title: "Solusi sesuai kebutuhan", desc: "Layanan dan materi disesuaikan dengan kondisi, skala, dan kompetensi masing-masing mitra." },
+  { title: "Pendampingan dan evaluasi", desc: "Setiap kerja sama ditutup dengan evaluasi agar mitra tahu hasil dan langkah tindak lanjutnya." },
 ];

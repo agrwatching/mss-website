@@ -1,9 +1,19 @@
 export const site = {
   name: "PT. Media Solusi Sukses",
   short: "MSS",
-  tagline: "Trainer expert yang hadir langsung ke sekolah-sekolah.",
+  label: "Internet, Instansi & Edukasi",
+  tagline: "Solusi internet, jaringan, dan edukasi untuk sekolah, instansi, dan bisnis.",
   description:
-    "Pelatihan teknologi dan keterampilan digital untuk guru dan siswa, dibawakan langsung oleh trainer berpengalaman di sekolah Anda.",
-  whatsapp: "6281234567890", // TODO: ganti dengan nomor asli (format 62...)
-  address: "Desa Kertajaya", // TODO: sesuaikan alamat kantor
+    "PT. Media Solusi Sukses menyediakan layanan internet (ISP), solusi jaringan untuk instansi dan perusahaan, serta pelatihan teknologi untuk sekolah, guru, dan siswa.",
+  keywords: [
+    "penyedia layanan internet",
+    "ISP",
+    "internet instansi",
+    "solusi jaringan",
+    "pelatihan teknologi sekolah",
+    "trainer expert",
+    "PT. Media Solusi Sukses",
+  ],
+  whatsapp: "6281234567890",
+  address: "Desa Kertajaya",
 };

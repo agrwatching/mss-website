@@ -1,7 +1,7 @@
 // src/data/alur.ts
 export const alur = [
-  { judul: "Konsultasi", deskripsi: "Diskusi kebutuhan dan kondisi sekolah." },
-  { judul: "Penyusunan Program", deskripsi: "Materi dan jadwal disesuaikan." },
-  { judul: "Pelaksanaan", deskripsi: "Trainer expert turun langsung ke sekolah." },
-  { judul: "Evaluasi", deskripsi: "Laporan hasil dan tindak lanjut." },
+  { judul: "Konsultasi", deskripsi: "Diskusi kebutuhan dan kondisi lokasi Anda." },
+  { judul: "Perencanaan", deskripsi: "Solusi, materi, dan jadwal disusun sesuai kebutuhan." },
+  { judul: "Pelaksanaan", deskripsi: "Tim kami hadir langsung dan menjalankan layanan di lokasi." },
+  { judul: "Evaluasi & Dukungan", deskripsi: "Laporan hasil dan pendampingan tindak lanjut." },
 ];

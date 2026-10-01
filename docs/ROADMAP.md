@@ -35,7 +35,7 @@ Legenda: `[x]` sudah ada, `[ ]` belum. P0 wajib, P1 inti, P2 pelengkap.
 
 ## 3. Halaman
 - [x] `/` beranda
-- [ ] `/program` (P1)
+- [x] `/program` (P1)
 - [ ] `/trainer` (P1)
 - [ ] `/kontak` (P1)
 - [ ] `/berita` + pagination (P1)

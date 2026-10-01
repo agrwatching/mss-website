@@ -17,6 +17,7 @@
   --animate-marquee: marquee 30s linear infinite;
   --animate-wave: wave 14s linear infinite;
   --animate-drift: drift 14s ease-in-out infinite;
+  --animate-orbit: orbit 5s linear infinite;
 
   @keyframes ring {
     0% { transform: scale(0.3); opacity: 0; }
@@ -68,3 +69,7 @@ h1, h2, h3 { font-family: var(--font-display); }
     scroll-behavior: auto !important;
   }
 }
+
+  @keyframes orbit {
+    to { transform: rotate(360deg); }
+  }

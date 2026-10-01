@@ -8,7 +8,7 @@ import { Particles } from "@/components/effects/Particles";
 import { Marquee } from "@/components/effects/Marquee";
 import { FloatingChips } from "@/components/effects/FloatingChips";
 
-const headline = "Trainer expert langsung ke sekolah Anda".split(" ");
+const headline = "Solusi internet untuk masyarakat, instansi dan perusahaan".split(" ");
 
 export function Hero() {
   return (
@@ -21,9 +21,9 @@ export function Hero() {
         <div>
           <p className="mb-4 inline-flex animate-rise items-center gap-2 rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-4 py-1.5 text-xs font-semibold text-brand-yellow">
             <span className="size-2 rounded-full bg-brand-yellow" />
-            Pelatihan untuk guru dan siswa
+            {site.label}
           </p>
-          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
             {headline.map((w, i) => (
               <span key={i} style={{ animationDelay: `${i * 90}ms` }} className="mr-[0.25em] inline-block animate-rise">
                 {w}

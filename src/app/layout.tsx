@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+// src/app/layout.tsx
+import type { Metadata, Viewport } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -9,12 +10,33 @@ import { site } from "@/data/site";
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
 
+const judul = `${site.name} | Internet, Jaringan & Edukasi`;
+
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Internet Fiber Optik Desa Kertajaya`,
+    default: judul,
     template: `%s | ${site.short}`,
   },
-  description: site.tagline,
+  description: site.description,
+  keywords: site.keywords,
+  applicationName: site.name,
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: site.name,
+    title: judul,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: judul,
+    description: site.description,
+  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a3bd1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

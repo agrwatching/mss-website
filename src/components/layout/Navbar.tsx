@@ -1,9 +1,11 @@
+// src/components/layout/Navbar.tsx
 "use client";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
+import { site } from "@/data/site";
 import { waLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
@@ -52,11 +54,11 @@ export function Navbar() {
           href="/"
           onClick={() => setOpen(false)}
           className="group flex items-center gap-3"
-          aria-label="Beranda PT. Media Solusi Sukses"
+          aria-label={`Beranda ${site.name}`}
         >
           <Image
             src="https://peeringdb-media-prod.s3.amazonaws.com/media/logos_user_supplied/org-32450-90bea291.jpg"
-            alt="Logo MSS"
+            alt={`Logo ${site.short}`}
             width={120}
             height={40}
             priority
@@ -70,10 +72,10 @@ export function Navbar() {
                 solid ? "text-ink group-hover:text-brand-blue" : "text-white group-hover:text-brand-yellow"
               )}
             >
-              PT. Media Solusi Sukses
+              {site.name}
             </span>
             <span className={cn("text-[0.7rem] font-semibold transition-colors duration-300", solid ? "text-brand-blue" : "text-brand-yellow")}>
-              Trainer Expert untuk Sekolah
+              {site.label}
             </span>
           </span>
         </Link>
@@ -104,7 +106,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <Button href={waLink()} external variant={solid ? "blue" : "primary"} className="!py-2">
-            Daftar via WhatsApp
+            Hubungi Kami
           </Button>
         </div>
 
@@ -142,7 +144,7 @@ export function Navbar() {
                     {n.label}
                   </Link>
                 ) : (
-                  <Button href={waLink()} external variant="blue" className="w-full">Daftar via WhatsApp</Button>
+                  <Button href={waLink()} external variant="blue" className="w-full">Hubungi Kami</Button>
                 )}
               </li>
             ))}
