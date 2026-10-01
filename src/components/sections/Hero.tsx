@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { site } from "@/data/site";
-import { waLink } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/Button";
 import { SignalWaves } from "@/components/effects/SignalWaves";
 import { GridBackground } from "@/components/effects/GridBackground";
@@ -35,7 +34,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:750ms]">
             <Button href="/program" arrow>Lihat program</Button>
-            <Button href={waLink()} external variant="outline">Ajukan kunjungan trainer</Button>
+            <Button href="/kontak" variant="outline">Hubungi kami</Button>
           </div>
         </div>
 

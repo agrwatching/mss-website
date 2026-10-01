@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { waLink } from "@/lib/whatsapp";
-import type { Trainer } from "@/data/trainer";
+import { FaEnvelope, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa6";
+import type { Trainer } from "@/data/team";
+import { imgSrc, isRemote } from "@/lib/img";
 
 export function TrainerCard({ t, i = 0 }: { t: Trainer; i?: number }) {
   const box = useRef<HTMLDivElement>(null);
@@ -15,6 +16,13 @@ export function TrainerCard({ t, i = 0 }: { t: Trainer; i?: number }) {
 
   const foto = gagal ? undefined : t.foto;
   const inisial = t.nama.split(" ").map((s) => s[0]).slice(0, 2).join("").toUpperCase();
+
+  const kontak = [
+    t.email && { nama: "Email", href: `mailto:${t.email}`, icon: FaEnvelope },
+    t.whatsapp && { nama: "WhatsApp", href: `https://wa.me/${t.whatsapp.replace(/\D/g, "")}`, icon: FaWhatsapp },
+    t.instagram && { nama: "Instagram", href: `https://instagram.com/${t.instagram.replace(/^@/, "")}`, icon: FaInstagram },
+    t.tiktok && { nama: "TikTok", href: `https://tiktok.com/@${t.tiktok.replace(/^@/, "")}`, icon: FaTiktok },
+  ].filter((k): k is { nama: string; href: string; icon: typeof FaEnvelope } => Boolean(k));
 
   // Tilt 3D + cahaya sorot: hanya mouse, dilewati jika pengguna memilih reduced motion
   const masuk = (e: React.PointerEvent) => {
@@ -66,9 +74,10 @@ export function TrainerCard({ t, i = 0 }: { t: Trainer; i?: number }) {
           {/* Foto, atau avatar inisial jika foto belum ada / gagal dimuat */}
           {foto ? (
             <Image
-              src={foto}
+              src={imgSrc(foto)}
               alt={`Foto ${t.nama}`}
               fill
+              unoptimized={isRemote(foto)}
               sizes="(min-width:1024px) 25vw, 50vw"
               onError={() => setGagal(true)}
               className="object-cover object-top transition duration-700 ease-out group-hover:scale-110"
@@ -115,23 +124,29 @@ export function TrainerCard({ t, i = 0 }: { t: Trainer; i?: number }) {
 
           {/* Info: naik saat hover, selalu tampil di layar sentuh */}
           <div className="absolute inset-x-0 bottom-0 translate-y-12 p-4 transition-transform duration-500 ease-out group-hover:translate-y-0 group-focus-within:translate-y-0 md:p-5 [@media(hover:none)]:translate-y-0">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-brand-yellow">Trainer Expert</p>
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-brand-yellow">{t.role ?? "Tim MSS"}</p>
             <h3 className="mt-1 font-display text-lg font-extrabold leading-tight text-white md:text-xl">{t.nama}</h3>
-            <p className="mt-1 line-clamp-1 text-xs text-white/70">{t.keahlian}</p>
+            <p className="mt-1 line-clamp-2 text-xs text-white/70">{t.role}</p>
             <span aria-hidden className="mt-3 block h-0.5 w-16 origin-left scale-x-50 rounded bg-brand-yellow transition-transform duration-500 group-hover:scale-x-100" />
 
-            <div className="mt-3 opacity-0 transition duration-500 delay-100 group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:opacity-100">
-              <a
-                href={waLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Tanya tentang ${t.nama} via WhatsApp`}
-                className="group/cta flex h-9 items-center justify-center gap-2 rounded-full bg-brand-yellow text-xs font-bold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Tanya via WhatsApp
-                <span aria-hidden className="transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
-              </a>
-            </div>
+            {kontak.length > 0 && (
+              <ul className="mt-3 flex gap-2 opacity-0 transition duration-500 delay-100 group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:opacity-100">
+                {kontak.map(({ nama, href, icon: Icon }, n) => (
+                  <li key={nama}>
+                    <a
+                      href={href}
+                      aria-label={`${nama} ${t.nama}`}
+                      title={nama}
+                      {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      style={{ transitionDelay: `${n * 50}ms` }}
+                      className="grid size-8 translate-y-2 place-items-center rounded-full bg-white/15 text-white ring-1 ring-white/20 transition duration-300 group-hover:translate-y-0 group-focus-within:translate-y-0 hover:!-translate-y-1 hover:scale-110 hover:bg-brand-yellow hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white [@media(hover:none)]:translate-y-0"
+                    >
+                      <Icon aria-hidden className="size-3.5" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </article>
       </div>

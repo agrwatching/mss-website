@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
 import { site } from "@/data/site";
-import { waLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 
@@ -105,9 +104,9 @@ export function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <Button href={waLink()} external variant={solid ? "blue" : "primary"} className="!py-2">
-            Hubungi Kami
-          </Button>
+           <Button href="/kontak" variant={solid ? "blue" : "primary"} className="!py-2">
+             Hubungi Kami
+           </Button>
         </div>
 
         <button
@@ -144,7 +143,9 @@ export function Navbar() {
                     {n.label}
                   </Link>
                 ) : (
-                  <Button href={waLink()} external variant="blue" className="w-full">Hubungi Kami</Button>
+                   <div onClick={() => setOpen(false)}>
+                    <Button href="/kontak" variant="blue" className="w-full">Hubungi Kami</Button>
+                  </div>
                 )}
               </li>
             ))}

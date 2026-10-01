@@ -1,18 +1,21 @@
 // src/app/trainer/page.tsx
 import type { Metadata } from "next";
-import { trainer } from "@/data/trainer";
+import { trainer } from "@/data/team";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { TrainerCard } from "@/components/trainer/TrainerCard";
+import { TrainerCard } from "@/components/team/TeamCard";
 import { Reveal } from "@/components/effects/Reveal";
 
-export const metadata: Metadata = { title: "Trainer Expert" };
+export const metadata: Metadata = {
+  title: "Tim Kami",
+  description: "Tim profesional PT. Media Solusi Sukses yang siap mendampingi sekolah, instansi, dan perusahaan.",
+};
 
 export default function TrainerPage() {
   return (
     <>
       <PageHeader
-        title="Trainer Expert"
-        desc="Tim pengajar dan praktisi berpengalaman yang siap mendampingi sekolah dan instansi Anda."
+        title="Tim Kami"
+        desc="Tim profesional PT. Media Solusi Sukses yang siap mendampingi sekolah, instansi, dan perusahaan."
       />
       <section className="bg-gradient-to-b from-white to-brand-blue/5 py-14 md:py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-5 md:gap-6 lg:grid-cols-4">

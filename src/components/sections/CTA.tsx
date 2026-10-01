@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/effects/Reveal";
-import { waLink } from "@/lib/whatsapp";
 
 export function CTA() {
   return (
@@ -11,9 +10,9 @@ export function CTA() {
         <Reveal variant="zoom">
           <div className="relative">
             <h2 className="text-3xl font-extrabold md:text-4xl">Siap Tingkatkan Kompetensi Sekolah Anda?</h2>
-            <p className="mx-auto mt-3 max-w-xl text-white/80">Hubungi kami untuk konsultasi program pelatihan.</p>
+            <p className="mx-auto mt-3 max-w-xl text-white/80">Hubungi kami untuk konsultasi layanan internet, solusi instansi, dan program pelatihan.</p>
             <div className="mt-8">
-              <Button href={waLink()} external variant="primary">Hubungi via WhatsApp</Button>
+              <Button href="/kontak" variant="primary" arrow>Konsultasi Sekarang</Button>
             </div>
           </div>
         </Reveal>

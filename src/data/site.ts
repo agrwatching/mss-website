@@ -15,5 +15,6 @@ export const site = {
     "PT. Media Solusi Sukses",
   ],
   whatsapp: "6281234567890",
+  email: "info@domainanda.com",
   address: "Desa Kertajaya",
 };
