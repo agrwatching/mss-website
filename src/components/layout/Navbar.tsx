@@ -16,7 +16,6 @@ export function Navbar() {
   const bar = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === "/";
-  // Solid (kaca putih) jika: sudah di-scroll, menu mobile terbuka, atau bukan halaman beranda
   const solid = scrolled || open || !isHome;
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export function Navbar() {
           aria-label={`Beranda ${site.name}`}
         >
           <Image
-            src="https://peeringdb-media-prod.s3.amazonaws.com/media/logos_user_supplied/org-32450-90bea291.jpg"
+            src="/logo.jpg"
             alt={`Logo ${site.short}`}
             width={120}
             height={40}
@@ -144,7 +143,7 @@ export function Navbar() {
                   </Link>
                 ) : (
                    <div onClick={() => setOpen(false)}>
-                    <Button href="/kontak" variant="blue" className="w-full">Hubungi Kami</Button>
+                    <Button href="/kontak" variant="blue" className="w-full">Contact</Button>
                   </div>
                 )}
               </li>

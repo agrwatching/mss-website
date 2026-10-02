@@ -5,10 +5,8 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { Reveal } from "@/components/effects/Reveal";
 import { cn } from "@/lib/cn";
-import type { Dokumentasi } from "@/data/dokumentasi";
-import { imgSrc, isRemote } from "@/lib/img";
 
-export function GaleriDokumentasi({ items }: { items: Dokumentasi[] }) {
+export function GaleriDokumentasi({ items }: { items: string[] }) {
   const [aktif, setAktif] = useState<number | null>(null);
   const [gagal, setGagal] = useState<Set<string>>(new Set());
 
@@ -35,14 +33,18 @@ export function GaleriDokumentasi({ items }: { items: Dokumentasi[] }) {
     };
   }, [aktif, tutup, geser]);
 
+  if (items.length === 0) {
+    return <p className="text-center text-ink/60">Belum ada foto.</p>;
+  }
+
   const d = aktif !== null ? items[aktif] : null;
 
   return (
     <>
       <div className="grid auto-rows-[170px] grid-flow-dense grid-cols-2 gap-3 md:auto-rows-[220px] md:grid-cols-3 md:gap-4">
-        {items.map((it, i) => (
+        {items.map((src, i) => (
           <Reveal
-            key={it.src}
+            key={src}
             variant="zoom"
             delay={(i % 3) * 80}
             className={cn("h-full", i % 5 === 0 && "col-span-2")}
@@ -50,42 +52,22 @@ export function GaleriDokumentasi({ items }: { items: Dokumentasi[] }) {
             <button
               type="button"
               onClick={() => setAktif(i)}
-              aria-label={`Perbesar foto: ${it.judul ?? it.alt}`}
+              aria-label={`Perbesar foto ${i + 1}`}
               className="group relative size-full overflow-hidden rounded-2xl bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
             >
-              {gagal.has(it.src) ? (
-                <span className="absolute inset-0 grid place-items-center bg-gradient-to-br from-brand-blue-deep to-brand-blue p-4 text-center text-sm font-semibold text-white/80">
-                  {it.alt}
-                </span>
+              {gagal.has(src) ? (
+                <span className="absolute inset-0 bg-gradient-to-br from-brand-blue-deep to-brand-blue" />
               ) : (
                 <Image
-                  src={imgSrc(it.src)}
-                  alt={it.alt}
+                  src={src}
+                  alt={`Dokumentasi ${i + 1}`}
                   fill
-                  unoptimized={isRemote(it.src)}
                   sizes="(min-width:768px) 33vw, 50vw"
-                  onError={() => tandaiGagal(it.src)}
+                  onError={() => tandaiGagal(src)}
                   className="object-cover transition duration-700 ease-out group-hover:scale-110"
                 />
               )}
-
-              <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[420%]"
-              />
-
-              <span className="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-left text-sm font-bold text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                {it.judul ?? it.alt}
-              </span>
-              <span
-                aria-hidden
-                className="absolute right-3 top-3 grid size-9 scale-75 place-items-center rounded-full bg-brand-yellow text-ink opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
-              >
-                <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-                  <path d="M12 3h5v5M8 17H3v-5M17 3l-6 6M3 17l6-6" />
-                </svg>
-              </span>
+              <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </button>
           </Reveal>
         ))}
@@ -95,7 +77,7 @@ export function GaleriDokumentasi({ items }: { items: Dokumentasi[] }) {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={d.judul ?? d.alt}
+          aria-label={`Foto ${aktif + 1}`}
           onClick={tutup}
           className="fixed inset-0 z-[60] grid animate-rise place-items-center bg-ink/90 p-4 backdrop-blur-sm"
         >
@@ -129,19 +111,20 @@ export function GaleriDokumentasi({ items }: { items: Dokumentasi[] }) {
             </>
           )}
 
-          <figure onClick={(e) => e.stopPropagation()} className="w-full max-w-4xl">
-            <div className="relative h-[68svh] w-full overflow-hidden rounded-2xl bg-ink">
-              {gagal.has(d.src) ? (
-                <span className="absolute inset-0 grid place-items-center text-white/70">{d.alt}</span>
-              ) : (
-                <Image src={imgSrc(d.src)} alt={d.alt} fill unoptimized={isRemote(d.src)} sizes="(min-width:1024px) 896px, 100vw" onError={() => tandaiGagal(d.src)} className="object-contain" />
-              )}
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between gap-4 text-white">
-              <span className="font-bold">{d.judul ?? d.alt}</span>
-              <span className="text-sm text-white/60">{aktif + 1} / {items.length}</span>
-            </figcaption>
-          </figure>
+          <div onClick={(e) => e.stopPropagation()} className="relative h-[80svh] w-full max-w-4xl overflow-hidden rounded-2xl">
+            {gagal.has(d) ? (
+              <span className="absolute inset-0 bg-ink" />
+            ) : (
+              <Image
+                src={d}
+                alt={`Dokumentasi ${aktif + 1}`}
+                fill
+                sizes="(min-width:1024px) 896px, 100vw"
+                onError={() => tandaiGagal(d)}
+                className="object-contain"
+              />
+            )}
+          </div>
         </div>
       )}
     </>

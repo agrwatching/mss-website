@@ -34,7 +34,7 @@ export function Footer() {
             <Reveal variant="up" className="lg:col-span-4">
               <Link href="/" className="group flex w-fit items-center gap-3" aria-label={`Beranda ${site.name}`}>
                 <Image
-                  src="https://peeringdb-media-prod.s3.amazonaws.com/media/logos_user_supplied/org-32450-90bea291.jpg"
+                  src="/logo.jpg"
                   alt={`Logo ${site.short}`}
                   width={120}
                   height={40}
