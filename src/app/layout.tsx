@@ -13,6 +13,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display
 const judul = `${site.name} | Internet, Jaringan & Edukasi`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mediasolusisukses.it.com"),
   title: {
     default: judul,
     template: `%s | ${site.short}`,
@@ -24,12 +25,14 @@ export const metadata: Metadata = {
     icon: "/logo.jpg",
     apple: "/logo.jpg",
   },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "id_ID",
     siteName: site.name,
     title: judul,
     description: site.description,
+    url: "/",
     images: ["/logo.jpg"],
   },
   twitter: {
