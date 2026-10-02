@@ -20,17 +20,23 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: site.keywords,
   applicationName: site.name,
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
     siteName: site.name,
     title: judul,
     description: site.description,
+    images: ["/logo.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: judul,
     description: site.description,
+    images: ["/logo.jpg"],
   },
   robots: { index: true, follow: true },
 };
