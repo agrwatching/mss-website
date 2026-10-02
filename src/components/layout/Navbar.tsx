@@ -81,7 +81,7 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-8 text-sm font-medium lg:flex">
           {navigation.map((n) => {
-            const active = pathname.startsWith(n.href);
+            const active = n.href === "/" ? pathname === "/" : pathname.startsWith(n.href);
             return (
               <li key={n.href}>
                 <Link

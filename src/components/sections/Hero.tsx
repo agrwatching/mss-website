@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { SignalWaves } from "@/components/effects/SignalWaves";
 import { GridBackground } from "@/components/effects/GridBackground";
 import { Particles } from "@/components/effects/Particles";
 import { Marquee } from "@/components/effects/Marquee";
-import { FloatingChips } from "@/components/effects/FloatingChips";
+import { HeroVisual } from "@/components/effects/HeroVisual";
 
 const headline = "Solusi internet untuk masyarakat, instansi dan perusahaan".split(" ");
 
@@ -42,21 +41,9 @@ export function Hero() {
           <div className="absolute inset-0">
             <SignalWaves showCore={false} />
           </div>
-          <div className="relative z-10 w-3/5 animate-float bg-white p-5 shadow-[0_0_90px_rgba(10,59,209,0.7)] ring-1 ring-white/20 rounded-full">
-            <Image
-              src="https://cdn-icons-gif.flaticon.com/16675/16675750.gif"
-              alt="Trainer MSS mengajar di sekolah"
-              width={500}
-              height={500}
-              unoptimized
-              priority
-              className="h-auto w-full"
-            />
-          </div>
-          <FloatingChips />
+          <HeroVisual />
         </div>
       </div>
-
       <Marquee />
     </section>
   );

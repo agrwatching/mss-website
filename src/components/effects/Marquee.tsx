@@ -1,4 +1,11 @@
-const items = ["Trainer berpengalaman", "Hadir langsung ke sekolah", "Praktik langsung", "Untuk guru dan siswa", "Materi sesuai kebutuhan"];
+const items = [
+  "Layanan internet (ISP)",
+  "Solusi jaringan instansi",
+  "Pelatihan teknologi",
+  "Untuk sekolah, instansi & bisnis",
+  "Tim berpengalaman",
+  "Hadir langsung di lokasi",
+];
 
 export function Marquee() {
   const row = (key: string) => (
