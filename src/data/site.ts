@@ -15,6 +15,6 @@ export const site = {
     "PT. Media Solusi Sukses",
   ],
   whatsapp: "6281234567890",
-  email: "info@domainanda.com",
-  address: "Desa Kertajaya",
+  email: "agramaesakusumah@gmail.com",
+  address: "Perum. Bumi Karawang Residence, Blok G12 No. 7-9, Desa Cengkong, Kecamatan Purwasari, Kabupaten Karawang, 41373",
 };

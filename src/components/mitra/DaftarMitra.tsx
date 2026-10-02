@@ -47,8 +47,28 @@ export function DaftarMitra({ items }: { items: Mitra[] }) {
             <article
               key={`${filter}-${m.slug}`}
               style={{ animationDelay: `${i * 60}ms` }}
-              className="group animate-rise rounded-2xl border border-ink/10 bg-white p-5 text-center transition duration-300 hover:-translate-y-1.5 hover:border-brand-blue/30 hover:shadow-[0_20px_40px_-22px_rgba(10,59,209,0.45)]"
+              className="group relative animate-rise rounded-2xl border border-ink/10 bg-white p-5 text-center transition duration-300 hover:-translate-y-1.5 hover:border-brand-blue/30 hover:shadow-[0_20px_40px_-22px_rgba(10,59,209,0.45)]"
             >
+              {m.website && (
+                <>
+                  <a
+                    href={m.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Kunjungi website ${m.nama}`}
+                    className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute right-3 top-3 grid size-7 scale-75 place-items-center rounded-full bg-brand-yellow text-ink opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
+                  >
+                    <svg viewBox="0 0 20 20" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 13L13 7M8 7h5v5" />
+                    </svg>
+                  </span>
+                </>
+              )}
+
               <div className="relative mx-auto grid size-20 place-items-center overflow-hidden rounded-2xl bg-brand-blue/10 transition duration-300 group-hover:scale-105 group-hover:bg-brand-blue/15">
                 {m.logo ? (
                   <Image src={imgSrc(m.logo)} alt={`Logo ${m.nama}`} fill unoptimized={isRemote(m.logo)} sizes="80px" className="object-contain p-2" />

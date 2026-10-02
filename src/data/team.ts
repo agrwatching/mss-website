@@ -4,10 +4,10 @@ export type Trainer = {
   nama: string;
   role: string;
   foto?: string;
-  email?: string; // contoh: "budi@domain.com"
-  whatsapp?: string; // format 62..., contoh: "628123456789"
-  instagram?: string; // username saja, tanpa @
-  tiktok?: string; // username saja, tanpa @
+  email?: string;
+  whatsapp?: string;
+  instagram?: string;
+  tiktok?: string;
 };
 
 export const trainer: Trainer[] = [

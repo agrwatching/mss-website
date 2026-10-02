@@ -5,6 +5,7 @@ import { GridBackground } from "@/components/effects/GridBackground";
 import { Particles } from "@/components/effects/Particles";
 import { Marquee } from "@/components/effects/Marquee";
 import { HeroVisual } from "@/components/effects/HeroVisual";
+import { TombolCompro } from "@/components/ui/TombolCompro";
 
 const headline = "Solusi internet untuk masyarakat, instansi dan perusahaan".split(" ");
 
@@ -33,7 +34,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:750ms]">
             <Button href="/program" arrow>Lihat program</Button>
-            <Button href="/kontak" variant="outline">Hubungi kami</Button>
+            <TombolCompro variant="outline" />
           </div>
         </div>
 
