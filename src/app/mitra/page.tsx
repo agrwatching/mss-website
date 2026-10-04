@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { mitra } from "@/data/mitra";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { DaftarMitra } from "@/components/mitra/DaftarMitra";
+import { MitraJaringan } from "@/components/mitra/MitraJaringan";
 import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function MitraPage() {
         <div className="mx-auto max-w-6xl px-5">
           <DaftarMitra items={mitra} />
         </div>
+        <MitraJaringan />
       </section>
       <CTA />
     </>
