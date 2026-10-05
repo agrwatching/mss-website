@@ -15,7 +15,6 @@ export function MitraJaringan() {
           title="Mitra Jaringan"
           desc={`${logo.length} penyedia layanan internet yang tumbuh bersama.`}
         />
-
         <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5">
           {logo.map((l, i) => (
             <li key={l.src}>

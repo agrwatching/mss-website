@@ -1,3 +1,4 @@
+// src/components/sections/Program.tsx
 import { program } from "@/data/program";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LihatSelengkapnya } from "@/components/ui/LihatSelengkapnya";
@@ -7,7 +8,7 @@ const arah = ["left", "up", "right"] as const;
 
 export function Program() {
   return (
-    <section id="program" className="py-20">
+    <section id="program" className="overflow-x-clip py-20">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading title="Program Pelatihan" desc="TODO deskripsi singkat." />
         <div className="mt-10 grid gap-6 md:grid-cols-3">

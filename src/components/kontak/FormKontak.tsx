@@ -68,24 +68,24 @@ export function FormKontak({ topik }: { topik?: string }) {
   return (
     <form onSubmit={kirim} className="mt-6 space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-ink">
+        <label className="block min-w-0 text-sm font-semibold text-ink">
           Nama
           <input required minLength={2} value={f.nama} onChange={ubah("nama")} placeholder="Nama lengkap" className={field} />
         </label>
-        <label className="block text-sm font-semibold text-ink">
+        <label className="block min-w-0 text-sm font-semibold text-ink">
           Email
           <input required type="email" value={f.email} onChange={ubah("email")} placeholder="nama@email.com" className={field} />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-ink">
+        <label className="block min-w-0 text-sm font-semibold text-ink">
           Sekolah / Instansi
           <input value={f.instansi} onChange={ubah("instansi")} placeholder="Opsional" className={field} />
         </label>
-        <label className="block text-sm font-semibold text-ink">
+        <label className="block min-w-0 text-sm font-semibold text-ink">
           Layanan yang diminati
-          <select value={f.layanan} onChange={ubah("layanan")} className={field}>
+          <select value={f.layanan} onChange={ubah("layanan")} className={`${field} truncate`}>
             {pilihan.map((p) => (
               <option key={p}>{p}</option>
             ))}
@@ -93,7 +93,7 @@ export function FormKontak({ topik }: { topik?: string }) {
         </label>
       </div>
 
-      <label className="block text-sm font-semibold text-ink">
+      <label className="block min-w-0 text-sm font-semibold text-ink">
         Pesan
         <textarea
           required
@@ -109,7 +109,7 @@ export function FormKontak({ topik }: { topik?: string }) {
       <button
         type="submit"
         disabled={mengirim}
-        className="group inline-flex items-center gap-2 rounded-full bg-brand-blue px-7 py-3 font-bold text-white shadow-lg shadow-brand-blue/30 transition duration-300 hover:-translate-y-0.5 hover:bg-brand-blue-deep hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
+        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-7 py-3 font-bold text-white shadow-lg shadow-brand-blue/30 transition duration-300 hover:-translate-y-0.5 hover:bg-brand-blue-deep hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0 sm:w-auto"
       >
         {mengirim ? (
           <>
