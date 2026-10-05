@@ -16,7 +16,7 @@ export function Hero() {
       <Particles />
       <div className="pointer-events-none absolute -left-32 top-1/3 -z-10 size-[28rem] animate-drift rounded-full bg-brand-blue/40 blur-3xl" />
 
-      <div className="mx-auto grid min-h-[calc(100svh-3.5rem)] max-w-6xl items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-2">
+      <div className="mx-auto grid min-h-[calc(100svh-3.5rem)] max-w-6xl items-center gap-12 px-5 pb-16 pt-20 lg:pt-32 lg:grid-cols-2">
         <div>
           <p className="mb-4 inline-flex animate-rise items-center gap-2 rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-4 py-1.5 text-xs font-semibold text-brand-yellow">
             <span className="size-2 rounded-full bg-brand-yellow" />
