@@ -73,3 +73,83 @@ h1, h2, h3 { font-family: var(--font-display); }
   @keyframes orbit {
     to { transform: rotate(360deg); }
   }
+
+  /* ===== Bagan organisasi (desktop) ===== */
+.org-tree {
+  --gap: 2rem;
+  --garis: rgb(255 255 255 / 0.4);
+}
+
+.org-tree ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: var(--gap) 0 0;
+  list-style: none;
+}
+
+/* garis turun dari induk ke deretan anak */
+.org-tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: var(--gap);
+  border-left: 1px solid var(--garis);
+}
+
+.org-tree li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--gap) 0.75rem 0;
+}
+
+/* garis horizontal kiri-kanan + garis turun ke tiap anak */
+.org-tree li::before,
+.org-tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: var(--gap);
+  border-top: 1px solid var(--garis);
+}
+.org-tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid var(--garis);
+}
+
+/* anak tunggal: cukup garis lurus dari induk */
+.org-tree li:only-child {
+  padding-top: 0;
+}
+.org-tree li:only-child::before,
+.org-tree li:only-child::after {
+  display: none;
+}
+
+/* ujung kiri dan kanan tidak punya garis ke luar */
+.org-tree li:first-child::before,
+.org-tree li:last-child::after {
+  border: 0 none;
+}
+.org-tree li:last-child::before {
+  border-right: 1px solid var(--garis);
+}
+
+/* puncak bagan: tanpa garis di atasnya */
+.org-tree > ul {
+  padding-top: 0;
+}
+.org-tree > ul > li {
+  padding-top: 0;
+}
+.org-tree > ul > li::before,
+.org-tree > ul > li::after {
+  display: none;
+}
