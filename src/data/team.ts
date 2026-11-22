@@ -44,17 +44,9 @@ export type Inti = {
 
 export const inti: Inti[] = [
   {
-    slug: "tarma",
-    nama: "Tarma, S.Kom.",
-    jabatan: "Chief Executive Project",
-    deskripsi:
-      "Mengembangkan dan melaksanakan proyek layanan internet serta program pendampingan industri di SMK, khususnya jurusan Networking dan Teknologi Informasi.",
-    foto: "/team/tarma.jpeg",
-  },
-  {
     slug: "dendi",
-    nama: "Dendi Suhermansyah",
-    jabatan: "Marketing Manager (CMO)",
+    nama: "Dendi, S.Kom",
+    jabatan: "Branch Manager",
     deskripsi:
       "Mengembangkan strategi pemasaran layanan internet, membangun kemitraan bisnis, serta memperluas jaringan kerja sama dengan sekolah, perusahaan, dan instansi pemerintah.",
     foto: "/team/dendi.jpeg",
@@ -74,6 +66,14 @@ export const inti: Inti[] = [
     deskripsi:
       "Mengelola hubungan dan kebutuhan pelanggan bidang pemerintahan dan industri, menyusun proposal penawaran.",
     foto: "/team/dewi.jpeg",
+  },
+    {
+    slug: "tarma",
+    nama: "Tarma, S.Kom.",
+    jabatan: "Expert Education Sales",
+    deskripsi:
+      "Mengembangkan dan melaksanakan proyek layanan internet serta program pendampingan industri di SMK, khususnya jurusan Networking dan Teknologi Informasi.",
+    foto: "/team/tarma.jpeg",
   },
 ];
 
